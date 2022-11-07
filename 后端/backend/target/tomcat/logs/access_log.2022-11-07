@@ -1,5 +1,0 @@
-0:0:0:0:0:0:0:1 - - [07/Nov/2022:17:26:11 +0800] "GET /gogo HTTP/1.1" 302 - http-bio-8080-exec-2 0
-0:0:0:0:0:0:0:1 - - [07/Nov/2022:17:26:12 +0800] "GET /gogo/ HTTP/1.1" 200 52 http-bio-8080-exec-3 721
-0:0:0:0:0:0:0:1 - - [07/Nov/2022:17:26:12 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
-0:0:0:0:0:0:0:1 - - [07/Nov/2022:17:26:23 +0800] "GET /gogo/selectDomesticById HTTP/1.1" 500 1581 http-bio-8080-exec-6 14
-0:0:0:0:0:0:0:1 - - [07/Nov/2022:17:26:53 +0800] "GET /gogo/selectDomesticByName HTTP/1.1" 200 19 http-bio-8080-exec-8 159
