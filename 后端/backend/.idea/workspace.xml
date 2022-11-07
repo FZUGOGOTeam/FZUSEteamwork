@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7de23386-0560-4fc3-aebf-52245a7806cb" name="Changes" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/mapper/ForeignPlayerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/pojo/DomesticPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/pojo/ForeignPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/service/DomesticPlayerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/service/ForeignPlayerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/util/SqlSessionFactoryUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/web/SelectDomesticByIdServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/web/SelectDomesticByNameServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/web/SelectForeignByIdServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gogo/web/SelectforeignByNameServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/gogo/mapper/ForeignPlayerMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gogo/mapper/PlayerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gogo/mapper/DomesticPlayerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/gogo/mapper/PlyerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/gogo/mapper/DomesticPlayerMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +31,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,7 +60,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../IdeaProjectRepo/brand_demo" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -61,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667805977467</updated>
-      <workItem from="1667805980256" duration="710000" />
+      <workItem from="1667805980256" duration="6929000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1667806642937</created>
@@ -70,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667806642937</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First Commit">
+      <created>1667806704713</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667806704713</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
