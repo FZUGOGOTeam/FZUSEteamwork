@@ -24,7 +24,7 @@ def minTomax(maxx, minx, x):
     ans = [[(maxx-e)]/(maxx-minx) for e in x]
     return np.array(ans)
 
-A = np.zeros(shape=(n, 1))
+A = np.zeros(shape=(n,1))
 
 for i in range(m):
     maxA = max(X[:, i])
