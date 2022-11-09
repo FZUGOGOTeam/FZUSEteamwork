@@ -4,18 +4,24 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gogo.mapper.DomesticPlayerMapper">
     <resultMap id="domesticPlayerResultMap" type="com.gogo.pojo.DomesticPlayer">
-
+        <result column="club_name" property="clubName"/>
+        <result column="preferred_foot" property="preferredFoot"/>
     </resultMap>
     <select id="selectById" resultMap="domesticPlayerResultMap">
         SELECT *
-        FROM tb_domestic_player
+        FROM basic_data
         WHERE id = #{id}
         ;
     </select>
     <select id="selectByName" resultMap="domesticPlayerResultMap">
         SELECT *
-        FROM tb_domestic_player
+        FROM basic_data
         WHERE name like #{name}
+        ;
+    </select>
+    <select id="selectAll" resultMap="domesticPlayerResultMap">
+        SELECT id, name
+        FROM basic_data
         ;
     </select>
 </mapper>

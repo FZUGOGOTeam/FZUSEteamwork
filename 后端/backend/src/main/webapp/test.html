@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get("http://localhost:8080/gogo/selectDomesticByName?name=李").then(function (resp){
+            let players = resp.data;
+            alert(players.length)
+        });
+    </script>
+</body>
+</html>

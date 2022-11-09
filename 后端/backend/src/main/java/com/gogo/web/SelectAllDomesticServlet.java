@@ -11,18 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
-@WebServlet("/selectDomesticById")
-public class SelectDomesticByIdServlet extends HttpServlet {
+@WebServlet("/selectAllDomestic")
+public class SelectAllDomesticServlet extends HttpServlet {
     private final DomesticPlayerService domesticPlayerService = new DomesticPlayerService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-        DomesticPlayer domesticPlayer = domesticPlayerService.selectById(Integer.parseInt(id));
+        List<DomesticPlayer> domesticPlayers = domesticPlayerService.selectAll();
         resp.setContentType("text/json;charset=utf-8");
-        String jsonString = JSON.toJSONString(domesticPlayer);
-        PrintWriter writer = resp.getWriter();
-        writer.write(jsonString);
+        String jsonString = JSON.toJSONString(domesticPlayers);
+        resp.getWriter().write(jsonString);
     }
 
     @Override

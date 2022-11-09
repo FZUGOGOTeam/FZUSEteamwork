@@ -1,19 +1,19 @@
 package com.gogo.pojo;
 
+import java.sql.Blob;
 import java.util.Date;
 public class DomesticPlayer {
     private Integer id;
     private String name;
-    private String nationality;
+    private String clubName;
     private Integer number;
     private Date birthday;
-    private String club;
+    private String preferredFoot;
     private Integer age;
-    private String role;
     private Integer height;
     private Integer weight;
-    private Double rating;
-    private Double playingTime;
+    private String position;
+    private Integer score;
 
     public DomesticPlayer() {
     }
@@ -34,12 +34,12 @@ public class DomesticPlayer {
         this.name = name;
     }
 
-    public String getNationality() {
-        return nationality;
+    public String getClubName() {
+        return clubName;
     }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
     }
 
     public Integer getNumber() {
@@ -58,12 +58,12 @@ public class DomesticPlayer {
         this.birthday = birthday;
     }
 
-    public String getClub() {
-        return club;
+    public String getPreferredFoot() {
+        return preferredFoot;
     }
 
-    public void setClub(String club) {
-        this.club = club;
+    public void setPreferredFoot(String preferredFoot) {
+        this.preferredFoot = preferredFoot;
     }
 
     public Integer getAge() {
@@ -72,14 +72,6 @@ public class DomesticPlayer {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public Integer getHeight() {
@@ -98,20 +90,21 @@ public class DomesticPlayer {
         this.weight = weight;
     }
 
-    public Double getRating() {
-        return rating;
+    public String getPosition() {
+        return position;
     }
 
-    public void setRating(Double rating) {
-        this.rating = rating;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    public Double getPlayingTime() {
-        return playingTime;
+
+    public Integer getScore() {
+        return score;
     }
 
-    public void setPlayingTime(Double playingTime) {
-        this.playingTime = playingTime;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     @Override
@@ -119,16 +112,15 @@ public class DomesticPlayer {
         return "DomesticPlayer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", nationality='" + nationality + '\'' +
+                ", clubName='" + clubName + '\'' +
                 ", number=" + number +
                 ", birthday=" + birthday +
-                ", club='" + club + '\'' +
+                ", preferredFoot='" + preferredFoot + '\'' +
                 ", age=" + age +
-                ", role='" + role + '\'' +
                 ", height=" + height +
                 ", weight=" + weight +
-                ", rating=" + rating +
-                ", playingTime=" + playingTime +
+                ", position=" + position +
+                ", score=" + score +
                 '}';
     }
 }

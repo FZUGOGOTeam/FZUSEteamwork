@@ -9,4 +9,6 @@ public interface DomesticPlayerMapper {
     DomesticPlayer selectById(int id);
 
     List<DomesticPlayer> selectByName(String name);
+
+    List<DomesticPlayer> selectAll();
 }
