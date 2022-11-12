@@ -14,14 +14,15 @@
         ;
     </select>
     <select id="selectByName" resultMap="domesticPlayerResultMap">
-        SELECT *
+        SELECT id, name, photo
         FROM basic_data
         WHERE name like #{name}
         ;
     </select>
-    <select id="selectAll" resultMap="domesticPlayerResultMap">
-        SELECT id, name
+    <select id="selectByClub" resultMap="domesticPlayerResultMap">
+        SELECT id, name, photo
         FROM basic_data
+        WHERE club_name = #{clubName}
         ;
     </select>
 </mapper>

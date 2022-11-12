@@ -14,8 +14,17 @@ public class DomesticPlayer {
     private Integer weight;
     private String position;
     private Integer score;
+    private String photo;
 
     public DomesticPlayer() {
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public Integer getId() {
@@ -119,8 +128,9 @@ public class DomesticPlayer {
                 ", age=" + age +
                 ", height=" + height +
                 ", weight=" + weight +
-                ", position=" + position +
+                ", position='" + position + '\'' +
                 ", score=" + score +
+                ", photo='" + photo + '\'' +
                 '}';
     }
 }

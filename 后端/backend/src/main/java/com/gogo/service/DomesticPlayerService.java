@@ -24,10 +24,10 @@ public class DomesticPlayerService {
         return domesticPlayers;
     }
 
-    public List<DomesticPlayer> selectAll() {
+    public List<DomesticPlayer> selectByClub(String clubName) {
         SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
         DomesticPlayerMapper mapper = sqlSession.getMapper(DomesticPlayerMapper.class);
-        List<DomesticPlayer> domesticPlayers = mapper.selectAll();
+        List<DomesticPlayer> domesticPlayers = mapper.selectByClub(clubName);
         return domesticPlayers;
     }
 }

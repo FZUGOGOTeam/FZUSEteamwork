@@ -10,5 +10,5 @@ public interface DomesticPlayerMapper {
 
     List<DomesticPlayer> selectByName(String name);
 
-    List<DomesticPlayer> selectAll();
+    List<DomesticPlayer> selectByClub(String clubName);
 }
