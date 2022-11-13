@@ -14,6 +14,7 @@ def csl():
     # 获取现在时间
     now = datetime.datetime.now()
     print(f"{now.date().year}年{now.date().month}月{now.date().day}日CSL数据库开始更新")
+
     # 构建MySQL数据库的链接
     conn = Connection(
         host="localhost",  # 主机名(IP)
@@ -23,44 +24,68 @@ def csl():
         autocommit=True  # 设置自动提交，不需要手动commit
     )
     # print(conn.get_server_info())   # 查看MySQL版本，确定是否链接到MySQL
-    # 执行非查询性质SQL
+
+    # 执行SQL语句
     cursor = conn.cursor()  # 获取游标对象
     # 选择数据库
     conn.select_db("players")
     # 使用游标对象，执行SQL并获取查询结果
+    cursor.execute("select count(*) from info")
+    results = cursor.fetchall()
+    counts = results[0][0]  # 取数据库行数
+    errors = 0  # 错误个数每天重置为0
+    # 获取名字与位置信息
     cursor.execute("select name,location from info")
     results = cursor.fetchall()
     # print(results)
+
+    # 数据处理
     for item in results:
-        cursor.execute(f"select * from record where name = '{item[0]}'")
-        data = cursor.fetchall()
-        score = 0  # 初始总评分为0分
-        # print(f"{item[0]}的历史数据为：")
-        for element in data:
-            if item[1] == "前锋":
-                # 根据前场评分权重计算总评
-                score += element[3] * forecourt_Weight[0]
-                score += (element[2] - element[3]) * forecourt_Weight[1]
-                score += element[4] * forecourt_Weight[2]
-                score += element[5] * forecourt_Weight[3]
-            if item[1] == "中场":
-                # 根据中场评分权重计算总评
-                score += element[3] * midfield_Weight[0]
-                score += (element[2] - element[3]) * midfield_Weight[1]
-                score += element[4] * midfield_Weight[2]
-                score += element[5] * midfield_Weight[3]
-            if item[1] == "后卫":
-                # 根据后场评分权重计算总评
-                score += element[3] * midfield_Weight[0]
-                score += (element[2] - element[3]) * midfield_Weight[1]
-            # print(element)  # 每个赛季的数据
-        # print(f"{item[0]}的总评为：")
-        # print(round(1.3 * score))
-        cursor.execute(f"update info set score={round(1.3 * score)} where name='{item[0]}'")
-        print(f"{item[0]}总评录入完成")
+        try:
+            cursor.execute(f"select * from record where name = '{item[0]}'")
+            data = cursor.fetchall()
+            score = 0  # 初始总评分为0分
+            # print(f"{item[0]}的历史数据为：")
+            for element in data:
+                if item[1] == "前锋":
+                    # 根据前场评分权重计算总评
+                    score += element[3] * forecourt_Weight[0]
+                    score += (element[2] - element[3]) * forecourt_Weight[1]
+                    score += element[4] * forecourt_Weight[2]
+                    score += element[5] * forecourt_Weight[3]
+                elif item[1] == "中场":
+                    # 根据中场评分权重计算总评
+                    score += element[3] * midfield_Weight[0]
+                    score += (element[2] - element[3]) * midfield_Weight[1]
+                    score += element[4] * midfield_Weight[2]
+                    score += element[5] * midfield_Weight[3]
+                elif item[1] == "后卫":
+                    # 根据后场评分权重计算总评
+                    score += element[3] * midfield_Weight[0]
+                    score += (element[2] - element[3]) * midfield_Weight[1]
+                elif item[1] == "门将":
+                    # 根据后场评分权重计算总评
+                    score += element[3] * midfield_Weight[0]
+                    score += (element[2] - element[3]) * midfield_Weight[1]
+                else:
+                    # 防止特殊情况
+                    score += element[3] * midfield_Weight[0]
+                    score += (element[2] - element[3]) * midfield_Weight[1]
+                # print(element)  # 每个赛季的数据
+            # print(f"{item[0]}的总评为：")
+            # print(round(1.3 * score))
+            cursor.execute(f"update info set score={round(1.3 * score)} where name='{item[0]}'")
+            # print(f"{item[0]}总评录入完成")
+        except Exception as error:
+            errors += 1  # 错误个数+1
+            log = f"{now.date().year}-{now.date().month}-{now.date().day}.txt"  # 定义日志文件名
+            with open(log, 'a', encoding="utf-8") as file:  # with open()方法打开日志文件，如果没有就新生成一个文件，a追加内容
+                file.write(f"{item[0]}数据处理异常：" + str(error) + '\n')  # 将错误写入日志文件
+
     # 关闭链接
     conn.close()
-    print(f"{now.date().year}年{now.date().month}月{now.date().day}日CSL数据库更新完成")
+    print(f"{now.date().year}年{now.date().month}月{now.date().day}日中超数据库成功更新：({counts - errors}/{counts})")
+
     # 隔一天更新数据库
     time = threading.Timer(86400, csl)
     time.start()
