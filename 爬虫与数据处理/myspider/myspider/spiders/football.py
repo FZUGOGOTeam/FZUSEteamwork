@@ -9,6 +9,10 @@ playerData = []
 U21playerData = []
 U23playerData = []
 
+playerInfo = []
+tempPlayerInfo = []
+
+
 def isU21(str):
     return "U21" in str
 
@@ -68,15 +72,69 @@ def GetUnder21And23Player(script):
             U21playerData.append(item)
         if isU23(item["name"]) == True:
             U23playerData.append(item)
+    print(U21playerData)
+    print(U23playerData)
 
 class FootballSpider(scrapy.Spider):
     name = 'football'
     allowed_domains = ['www.dongqiudi.com']
     start_urls = ['https://www.dongqiudi.com/team/50077677.html']
+    #/team/50077677.html
 
-    def parse(self, response):
+
+    def parse(self, response):  #从球队中爬取球员名字和ID
         items = MyspiderItem()
         script = response.xpath("//body//script/text()").get()
         GetUnder21And23Player(script)
 
 
+            
+        for item in U21playerData:
+            player_url = 'https://www.dongqiudi.com/player/'+str(item["id"])+'.html'
+
+            yield scrapy.Request(url=player_url, callback=self.parse_second)
+
+        for item in U23playerData:
+            player_url = 'https://www.dongqiudi.com/player/'+str(item["id"])+'.html'
+            yield scrapy.Request(url=player_url, callback=self.parse_second)
+
+
+
+
+    def parse_second(self, response):   #每一个球员的爬取
+
+        data = response.xpath("string(//div[@class='player-info'])").get()
+        print(data)
+        tempPlayerInfo.clear()
+        for i in range(0, len(data)):
+            if data[i] == "：":
+                temp = ""
+                for j in range(i+1, len(data)):
+                    if data[j] == " ":
+                        i = j
+                        break
+                    temp += data[j]
+                tempPlayerInfo.append(temp)
+
+        data = response.xpath("string(//p[@class='china-name'])").get()
+        tempPlayerInfo.append(data)
+        print(data)
+        data = response.xpath("//img[@class='player-photo']/@src").get()
+        tempPlayerInfo.append(data)
+
+        playerInfo.append({"name": tempPlayerInfo[9],"Picsrc": tempPlayerInfo[10],"age":tempPlayerInfo[4],"birthday": tempPlayerInfo[7], "clubName": tempPlayerInfo[0], "country": tempPlayerInfo[1],
+                           "height":tempPlayerInfo[2],"number":tempPlayerInfo[6],"position":tempPlayerInfo[3],"preferredFoot": tempPlayerInfo[8],"weight":tempPlayerInfo[5]})
+        items = MyspiderItem()
+        items['player_name'] = tempPlayerInfo[9]
+        items['player_photo'] = tempPlayerInfo[10]
+        items['player_club'] = tempPlayerInfo[0]
+        items['player_country'] = tempPlayerInfo[1]
+        items['player_height'] = tempPlayerInfo[2]
+        items['player_position'] = tempPlayerInfo[3]
+        items['player_age'] = tempPlayerInfo[4]
+        items['player_weight'] = tempPlayerInfo[5]
+        items['player_number'] = tempPlayerInfo[6]
+        items['player_birth'] = tempPlayerInfo[7]
+        items['player_preferredfoot'] = tempPlayerInfo[8]
+        yield items
+        print(playerInfo)
