@@ -17,10 +17,10 @@ def csl():
 
     # 构建MySQL数据库的链接
     conn = Connection(
-        host="localhost",  # 主机名(IP)
+        host="124.222.161.184",  # 主机名(IP)
         port=3306,  # 端口
-        user="root",  # 账户
-        password="Lan58648983",  # 密码
+        user="gogo",  # 账户
+        password="987654321",  # 密码
         autocommit=True  # 设置自动提交，不需要手动commit
     )
     # print(conn.get_server_info())   # 查看MySQL版本，确定是否链接到MySQL
@@ -28,53 +28,54 @@ def csl():
     # 执行SQL语句
     cursor = conn.cursor()  # 获取游标对象
     # 选择数据库
-    conn.select_db("players")
+    conn.select_db("snqz_databases")
     # 使用游标对象，执行SQL并获取查询结果
-    cursor.execute("select count(*) from info")
+    cursor.execute("select count(*) from native_player_info")
     results = cursor.fetchall()
     counts = results[0][0]  # 取数据库行数
     errors = 0  # 错误个数每天重置为0
     # 获取名字与位置信息
-    cursor.execute("select name,location from info")
+    cursor.execute("select name,position from native_player_info")
     results = cursor.fetchall()
     # print(results)
 
     # 数据处理
     for item in results:
         try:
-            cursor.execute(f"select * from record where name = '{item[0]}'")
+            cursor.execute(f"select * from native_player_matchdata where name = '{item[0]}'")
             data = cursor.fetchall()
+            # print(data)  # 查看总体数据
             score = 0  # 初始总评分为0分
             # print(f"{item[0]}的历史数据为：")
             for element in data:
                 if item[1] == "前锋":
                     # 根据前场评分权重计算总评
-                    score += element[3] * forecourt_Weight[0]
-                    score += (element[2] - element[3]) * forecourt_Weight[1]
-                    score += element[4] * forecourt_Weight[2]
-                    score += element[5] * forecourt_Weight[3]
+                    score += int(element[3]) * forecourt_Weight[0]
+                    score += (int(element[2]) - int(element[3])) * forecourt_Weight[1]
+                    score += int(element[4]) * forecourt_Weight[2]
+                    score += int(element[5]) * forecourt_Weight[3]
                 elif item[1] == "中场":
                     # 根据中场评分权重计算总评
-                    score += element[3] * midfield_Weight[0]
-                    score += (element[2] - element[3]) * midfield_Weight[1]
-                    score += element[4] * midfield_Weight[2]
-                    score += element[5] * midfield_Weight[3]
+                    score += int(element[3]) * midfield_Weight[0]
+                    score += (int(element[2]) - int(element[3])) * midfield_Weight[1]
+                    score += int(element[4]) * midfield_Weight[2]
+                    score += int(element[5]) * midfield_Weight[3]
                 elif item[1] == "后卫":
                     # 根据后场评分权重计算总评
-                    score += element[3] * midfield_Weight[0]
-                    score += (element[2] - element[3]) * midfield_Weight[1]
+                    score += int(element[3]) * midfield_Weight[0]
+                    score += (int(element[2]) - int(element[3])) * midfield_Weight[1]
                 elif item[1] == "门将":
                     # 根据后场评分权重计算总评
-                    score += element[3] * midfield_Weight[0]
-                    score += (element[2] - element[3]) * midfield_Weight[1]
+                    score += int(element[3]) * midfield_Weight[0]
+                    score += (int(element[2]) - int(element[3])) * midfield_Weight[1]
                 else:
                     # 防止特殊情况
-                    score += element[3] * midfield_Weight[0]
-                    score += (element[2] - element[3]) * midfield_Weight[1]
+                    score += int(element[3]) * midfield_Weight[0]
+                    score += (int(element[2]) - int(element[3])) * midfield_Weight[1]
                 # print(element)  # 每个赛季的数据
             # print(f"{item[0]}的总评为：")
             # print(round(1.3 * score))
-            cursor.execute(f"update info set score={round(1.0 * score) + 15} where name='{item[0]}'")
+            cursor.execute(f"update native_player_info set score={round(1.0 * score) + 20} where name='{item[0]}'")
             # print(f"{item[0]}总评录入完成")
         except Exception as error:
             errors += 1  # 错误个数+1
