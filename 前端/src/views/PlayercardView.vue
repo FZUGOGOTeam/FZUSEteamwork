@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn" @click="get_player_info">获取球员信息</button>
+        <button class="btn" @click="get_player_info()">获取球员信息</button>
     </div>
 
 </template>
@@ -66,12 +66,12 @@ export default {
 
         ]);
 
-        const get_player_info = () => {
+        const get_player_info = (playername) => {
             $.ajax({
                 url: 'http://124.222.161.184:5000/getplayerinfo',
                 type: "get",
                 data: {
-                    /* "id":xx */
+                    "name": playername,
                 },
                 dataType: "json",
                 success(resp) {
@@ -89,16 +89,17 @@ export default {
         };
     }
 }
+
 </script>
 
 <style scoped>
-#content {
+/* #content {
     background: url("https://img2.baidu.com/it/u=2320728351,716210689&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500");
     background-size: 100% 100%;
     width: 100vw;
     height: 100vh;
 }
-
+ */
 .card {
     width: auto;
     background-color: rgb(242, 242, 242);

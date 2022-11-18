@@ -2,11 +2,11 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <img src="https://cdn.acwing.com/media/user/profile/photo/222713_lg_d6fd8c4861.PNG">
-            <RouterLink :to="{ name: 'home' }" class="navbar-brand">首页</RouterLink>
+            <RouterLink :to="{ name: 'home' }" class="navbar-brand dropbtn">首页</RouterLink>
 
             <div class="dropdown">
-                <a href="#" class="dropbtn navbar-brand">国内青训</a>
-                <div class="dropdown-content">
+                <RouterLink :to="{ name: 'GuoneiView' }" class="dropbtn navbar-brand">国内青训</RouterLink>
+                <!--   <div class="dropdown-content">
                     <RouterLink :to="{ name: 'TeamView' }">山东泰安</RouterLink>
                     <a href="#">球队名2</a>
                     <a href="#">球队名3</a>
@@ -16,11 +16,11 @@
                     <a href="#">球队名7</a>
                     <a href="#">球队名8</a>
                     <a href="#">......</a>
-                </div>
+                </div> -->
             </div>
 
-            <a class="navbar-brand">留洋球员</a>
-            <a class="navbar-brand">排行榜</a>
+            <a class="navbar-brand dropbtn" style="">留洋球员</a>
+            <a class="navbar-brand dropbtn">排行榜</a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="输入球员姓名搜索" aria-label="Search">
                 <button class="btn btn-primary" type="submit">搜索</button>
@@ -32,21 +32,23 @@
 
 <script>
 
-
-
-
+/* import $ from 'jquery'; */
+/* import { ref } from 'vue'; */
 
 export default {
     name: "NavBar",
 
 
+};
 
-}
+
 
 
 
 
 </script>
+
+
 
 <style scoped>
 .navbar-brand {
