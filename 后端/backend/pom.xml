@@ -49,6 +49,14 @@
       <version>2.0.18</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+    <dependency>
+      <groupId>org.mariadb.jdbc</groupId>
+      <artifactId>mariadb-java-client</artifactId>
+      <version>3.0.9</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
@@ -59,6 +67,7 @@
         <version>2.2</version>
         <configuration>
           <path>/gogo</path>
+          <port>8080</port>
         </configuration>
       </plugin>
     </plugins>

@@ -6,25 +6,26 @@ public class DomesticPlayer {
     private Integer id;
     private String name;
     private String clubName;
-    private Integer number;
-    private Date birthday;
+    private String number;
+    private String birthday;
     private String preferredFoot;
-    private Integer age;
-    private Integer height;
-    private Integer weight;
+    private String age;
+    private String height;
+    private String weight;
     private String position;
     private Integer score;
     private String photo;
+    private String country;
 
     public DomesticPlayer() {
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getCountry() {
+        return country;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public Integer getId() {
@@ -51,19 +52,19 @@ public class DomesticPlayer {
         this.clubName = clubName;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -75,27 +76,27 @@ public class DomesticPlayer {
         this.preferredFoot = preferredFoot;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public Integer getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(Integer height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public Integer getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
@@ -107,7 +108,6 @@ public class DomesticPlayer {
         this.position = position;
     }
 
-
     public Integer getScore() {
         return score;
     }
@@ -116,18 +116,26 @@ public class DomesticPlayer {
         this.score = score;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     @Override
     public String toString() {
         return "DomesticPlayer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", clubName='" + clubName + '\'' +
-                ", number=" + number +
-                ", birthday=" + birthday +
+                ", number='" + number + '\'' +
+                ", birthday='" + birthday + '\'' +
                 ", preferredFoot='" + preferredFoot + '\'' +
-                ", age=" + age +
-                ", height=" + height +
-                ", weight=" + weight +
+                ", age='" + age + '\'' +
+                ", height='" + height + '\'' +
+                ", weight='" + weight + '\'' +
                 ", position='" + position + '\'' +
                 ", score=" + score +
                 ", photo='" + photo + '\'' +

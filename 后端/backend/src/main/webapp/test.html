@@ -7,9 +7,9 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        axios.get("http://localhost:8080/gogo/selectDomesticByName?name=李").then(function (resp){
+        axios.get("http://localhost:8080/gogo/selectDomesticByName?name=刘国宝(U21)").then(function (resp){
             let players = resp.data;
-            alert(players.length)
+            console.log(players)
         });
     </script>
 </body>

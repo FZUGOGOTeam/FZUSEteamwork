@@ -8,9 +8,9 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql:///gogo?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=true"/>
-                <property name="username" value="root"/>
-                <property name="password" value="6017567lck"/>
+                <property name="url" value="jdbc:mysql://124.222.161.184:3306/snqz_databases?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=true"/>
+                <property name="username" value="gogo"/>
+                <property name="password" value="987654321"/>
             </dataSource>
         </environment>
     </environments>

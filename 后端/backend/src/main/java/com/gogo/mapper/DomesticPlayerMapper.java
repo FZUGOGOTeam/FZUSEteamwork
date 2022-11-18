@@ -8,7 +8,8 @@ public interface DomesticPlayerMapper {
 
     DomesticPlayer selectById(int id);
 
-    List<DomesticPlayer> selectByName(String name);
+    List<DomesticPlayer> selectByPartName(String name);
 
     List<DomesticPlayer> selectByClub(String clubName);
+    DomesticPlayer selectByName(String name);
 }

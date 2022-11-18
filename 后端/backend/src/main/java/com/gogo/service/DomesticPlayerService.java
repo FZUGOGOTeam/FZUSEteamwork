@@ -17,10 +17,11 @@ public class DomesticPlayerService {
         return domesticPlayer;
     }
 
-    public List<DomesticPlayer> selectByName(String name) {
+    public List<DomesticPlayer> selectByPartName(String name) {
         SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
         DomesticPlayerMapper mapper = sqlSession.getMapper(DomesticPlayerMapper.class);
-        List<DomesticPlayer> domesticPlayers = mapper.selectByName(name);
+        List<DomesticPlayer> domesticPlayers = mapper.selectByPartName(name);
+        sqlSession.close();
         return domesticPlayers;
     }
 
@@ -28,6 +29,14 @@ public class DomesticPlayerService {
         SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
         DomesticPlayerMapper mapper = sqlSession.getMapper(DomesticPlayerMapper.class);
         List<DomesticPlayer> domesticPlayers = mapper.selectByClub(clubName);
+        sqlSession.close();
         return domesticPlayers;
+    }
+
+    public DomesticPlayer selectByName(String name) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        DomesticPlayerMapper mapper = sqlSession.getMapper(DomesticPlayerMapper.class);
+        DomesticPlayer domesticPlayer = mapper.selectByName(name);
+        return domesticPlayer;
     }
 }

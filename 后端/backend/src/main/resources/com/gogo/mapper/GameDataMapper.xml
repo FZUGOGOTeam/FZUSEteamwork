@@ -10,8 +10,14 @@
     </resultMap>
     <select id="selectById" resultMap="GameDataResultMap">
         SELECT *
-        FROM game_data
+        FROM native_player_matchdata
         WHERE id = #{id}
+        ;
+    </select>
+    <select id="selectByName" resultType="com.gogo.pojo.GameData">
+        SELECT *
+        FROM native_player_matchdata
+        WHERE  name = #{name}
         ;
     </select>
 
