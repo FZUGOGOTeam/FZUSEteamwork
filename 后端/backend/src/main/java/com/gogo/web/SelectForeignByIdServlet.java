@@ -22,9 +22,9 @@ public class SelectForeignByIdServlet extends HttpServlet {
         String id = req.getParameter("id");
         ForeignPlayer foreignPlayer = foreignPlayerService.selectById(Integer.parseInt(id));
         String jsonString = JSON.toJSONString(foreignPlayer);
+        resp.setContentType("text/json;charset=utf-8");
         PrintWriter writer = resp.getWriter();
         writer.write(jsonString);
-        writer.flush();
     }
 
     @Override

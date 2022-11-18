@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface GameDataMapper {
     List<GameData> selectById(int id);
-    List<GameData> selectByName(String name);
+    GameData selectByName(String name);
 }

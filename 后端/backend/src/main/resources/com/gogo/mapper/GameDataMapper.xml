@@ -4,9 +4,10 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gogo.mapper.GameDataMapper">
     <resultMap id="GameDataResultMap" type="com.gogo.pojo.GameData">
-        <result column="play_match" property="playMatch"/>
-        <result column="red_cards" property="redCards"/>
-        <result column="yellow_cards" property="yellowCards"/>
+        <result column="play_count" property="playCount"/>
+        <result column="red_card" property="redCards"/>
+        <result column="yellow_card" property="yellowCards"/>
+        <result column="starter_count" property="starterCount"/>
     </resultMap>
     <select id="selectById" resultMap="GameDataResultMap">
         SELECT *
@@ -14,7 +15,7 @@
         WHERE id = #{id}
         ;
     </select>
-    <select id="selectByName" resultType="com.gogo.pojo.GameData">
+    <select id="selectByName" resultMap="GameDataResultMap">
         SELECT *
         FROM native_player_matchdata
         WHERE  name = #{name}

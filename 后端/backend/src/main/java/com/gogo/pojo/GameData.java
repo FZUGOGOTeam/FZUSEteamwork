@@ -2,13 +2,14 @@ package com.gogo.pojo;
 
 public class GameData {
     private String name;
-    private Integer id;
     private String season;
-    private String playMatch;
-    private String goals;
+    private String playCount;
+    private String goal;
     private String assists;
     private String yellowCards;
     private String redCards;
+    private String starterCount;
+    private String clubName;
 
     public GameData() {
     }
@@ -21,14 +22,6 @@ public class GameData {
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getSeason() {
         return season;
     }
@@ -37,20 +30,20 @@ public class GameData {
         this.season = season;
     }
 
-    public String getPlayMatch() {
-        return playMatch;
+    public String getPlayCount() {
+        return playCount;
     }
 
-    public void setPlayMatch(String playMatch) {
-        this.playMatch = playMatch;
+    public void setPlayCount(String playCount) {
+        this.playCount = playCount;
     }
 
-    public String getGoals() {
-        return goals;
+    public String getGoal() {
+        return goal;
     }
 
-    public void setGoals(String goals) {
-        this.goals = goals;
+    public void setGoal(String goal) {
+        this.goal = goal;
     }
 
     public String getAssists() {
@@ -77,17 +70,34 @@ public class GameData {
         this.redCards = redCards;
     }
 
+    public String getStarterCount() {
+        return starterCount;
+    }
+
+    public void setStarterCount(String starterCount) {
+        this.starterCount = starterCount;
+    }
+
+    public String getClubName() {
+        return clubName;
+    }
+
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
+    }
+
     @Override
     public String toString() {
         return "GameData{" +
                 "name='" + name + '\'' +
-                ", id=" + id +
                 ", season='" + season + '\'' +
-                ", playMatch='" + playMatch + '\'' +
-                ", goals='" + goals + '\'' +
+                ", playCount='" + playCount + '\'' +
+                ", goal='" + goal + '\'' +
                 ", assists='" + assists + '\'' +
                 ", yellowCards='" + yellowCards + '\'' +
                 ", redCards='" + redCards + '\'' +
+                ", starterCount='" + starterCount + '\'' +
+                ", clubName='" + clubName + '\'' +
                 '}';
     }
 }

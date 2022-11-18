@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @WebServlet("/selectDomesticByClub")
@@ -18,6 +19,7 @@ public class SelectDomesticByClubServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String clubName = req.getParameter("clubName");
+        clubName = new String(clubName.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
         List<DomesticPlayer> domesticPlayers = domesticPlayerService.selectByClub(clubName);
         resp.setContentType("text/json;charset=utf-8");
         String jsonString = JSON.toJSONString(domesticPlayers);

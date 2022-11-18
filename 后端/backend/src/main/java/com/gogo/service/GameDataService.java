@@ -15,4 +15,13 @@ public class GameDataService {
         sqlSession.close();
         return gameData;
     }
+
+    public GameData selectByName(String name) {
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        GameDataMapper mapper = sqlSession.getMapper(GameDataMapper.class);
+        GameData gameData = mapper.selectByName(name);
+        sqlSession.close();
+        return gameData;
+    }
+
 }

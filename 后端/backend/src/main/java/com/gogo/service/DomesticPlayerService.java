@@ -37,6 +37,7 @@ public class DomesticPlayerService {
         SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
         DomesticPlayerMapper mapper = sqlSession.getMapper(DomesticPlayerMapper.class);
         DomesticPlayer domesticPlayer = mapper.selectByName(name);
+        sqlSession.close();
         return domesticPlayer;
     }
 }

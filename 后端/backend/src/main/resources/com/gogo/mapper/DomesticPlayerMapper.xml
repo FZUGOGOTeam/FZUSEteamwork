@@ -13,15 +13,15 @@
         ;
     </select>
     <select id="selectByPartName" resultMap="domesticPlayerResultMap">
-        SELECT id, name, photo
+        SELECT id, name, Picsrc
         FROM native_player_info
         WHERE name like #{name}
         ;
     </select>
     <select id="selectByClub" resultMap="domesticPlayerResultMap">
-        SELECT id, name, photo
+        SELECT id, name, Picsrc
         FROM native_player_info
-        WHERE club_name = #{clubName}
+        WHERE clubName = #{clubName}
         ;
     </select>
     <select id="selectByName" resultMap="domesticPlayerResultMap">
