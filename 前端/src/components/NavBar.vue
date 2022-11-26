@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark nav">
         <div class="container">
             <img src="https://cdn.acwing.com/media/user/profile/photo/222713_lg_d6fd8c4861.PNG">
             <RouterLink :to="{ name: 'home' }" class="navbar-brand dropbtn">首页</RouterLink>
@@ -21,7 +21,7 @@
 
             <a class="navbar-brand dropbtn" style="">留洋球员</a>
             <a class="navbar-brand dropbtn">排行榜</a>
-            <form class="d-flex" role="search">
+            <form class="d-flex search" role="search">
                 <input class="form-control me-2" type="search" placeholder="输入球员姓名搜索" aria-label="Search">
                 <button class="btn btn-primary" type="submit">搜索</button>
             </form>
@@ -51,12 +51,22 @@ export default {
 
 
 <style scoped>
+.search {
+    width: 17vw;
+}
+
+.nav {
+    height: 12vh;
+
+
+}
+
 .navbar-brand {
-    font-size: 30px;
+    font-size: 2vw;
 }
 
 img {
-    width: 130px;
+    width: 6vw;
     border-radius: 50%;
 }
 
