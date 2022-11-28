@@ -1,4 +1,5 @@
 <template>
+  <div id="nativebg">
   <div id="province_name">
     <!-- 这里插入省份名 -->
     <span id="provincename" className="border border-3 rounded-pill">{{this.$route.query.provinceName}}省</span>
@@ -29,6 +30,7 @@
 
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -74,7 +76,9 @@ export default {
 .card_hover {
   border-width: 0px;
 }
-
+#nativebg{
+  background: #333333;
+}
 .card_hover:hover {
   transform: scale(1.1);
   transition: all 0.2s;
@@ -109,6 +113,7 @@ export default {
 
 #provincename {
   padding: 10px;
+  color: #111111;
 }
 
 .context_area {

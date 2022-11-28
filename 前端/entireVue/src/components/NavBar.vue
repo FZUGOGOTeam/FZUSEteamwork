@@ -1,28 +1,19 @@
 <template>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-transparent">
         <div class="container">
+          <a class="navbar-brand ">
             <img src="https://cdn.acwing.com/media/user/profile/photo/222713_lg_d6fd8c4861.PNG">
-            <RouterLink :to="{ name: 'home' }" class="navbar-brand">首页</RouterLink>
-            <div class="dropdown">
-                <RouterLink :to="{ name: 'NativeView' }" class="navbar-brand">国内青训</RouterLink>
-                <div class="dropdown-content">
-                    <RouterLink :to="{ name: 'TeamView' }">山东泰山</RouterLink>
-                    <a href="#">球队名2</a>
-                    <a href="#">球队名3</a>
-                    <a href="#">球队名4</a>
-                    <a href="#">球队名5</a>
-                    <a href="#">球队名6</a>
-                    <a href="#">球队名7</a>
-                    <a href="#">球队名8</a>
-                    <a href="#">......</a>
-                </div>
-            </div>
+          </a>
 
-            <a class="navbar-brand">留洋球员</a>
+          <RouterLink :to="{ name: 'home' }" class="navbar-brand">首页</RouterLink>
+          <RouterLink :to="{ name: 'NativeView' }" class="navbar-brand ">国内青训</RouterLink>
+
+
+          <RouterLink :to="{name: 'AbroadView'}" class="navbar-brand ">留洋球员</RouterLink>
             <a class="navbar-brand">排行榜</a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="输入球员姓名搜索" aria-label="Search">
-                <button class="btn btn-primary" type="submit">搜索</button>
+                <button class="btn btn-primary" style="width: 100px" type="submit">搜索</button>
             </form>
         </div>
     </nav>
@@ -48,13 +39,22 @@ export default {
 </script>
 
 <style scoped>
-.navbar-brand {
-    font-size: 30px;
-}
 
+
+.navbar-brand {
+    font-size: 22px;
+    hover:#42b983;
+}
+.d-flex{
+  height: 35px;
+
+}
+.navbar-link {
+  font-size: 35px;
+}
 img {
-    width: 130px;
-    border-radius: 50%;
+    width: 40px;
+    border-radius: 30%;
 }
 
 * {
@@ -97,7 +97,7 @@ ul {
     background-color: hsl(0, 0%, 98%);
     /* 设置链接元素的最小宽度 */
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+    box-shadow: 0px 2px 2px 0px rgba(255, 255, 255, 0);
     overflow: auto;
 }
 

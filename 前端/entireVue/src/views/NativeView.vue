@@ -1,5 +1,7 @@
 <template>
+  <div id="nativebg">
   <Chinamap ref="chart_China_map"/>
+  </div>
 </template>
 
 <script>
@@ -18,5 +20,7 @@ export default {
 </script>
 
 <style scoped>
-
+#nativebg{
+  background: #333333;
+}
 </style>

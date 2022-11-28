@@ -5,12 +5,17 @@ import TeamView from '../views/TeamView.vue'
 import NativeView from '../views/NativeView'
 import ProvinceView from "@/views/ProvinceView";
 import TeamPlayerView from '../views/TeamPlayerView.vue';
-
+import AbroadView from "@/views/AbroadView";
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/AbroadView',
+    name: 'AbroadView',
+    component: AbroadView
   },
   {
     path: '/Province',

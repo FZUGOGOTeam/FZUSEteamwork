@@ -1,4 +1,5 @@
 <template>
+  <div id="nativebg">
   <div id="content">
     <div id="team_name">
 
@@ -26,7 +27,7 @@
       </div>
     </div>
   </div>
-
+  </div>
 
   <!-- <div class="card" style="width: 10rem; border: 0;">
       <img src="https://gdc.hupucdn.com/gdc/nba/players/uploads/gamespace/players/844029fa1e83104a699ad14748a795bc.png"
@@ -81,6 +82,9 @@ export default {
 </script>
 
 <style scoped>
+#nativebg{
+  background: #333333;
+}
 .player_hover:hover {
   transform: scale(1.05);
   transition: all 0.2s;
@@ -93,7 +97,7 @@ export default {
   margin-bottom: 20px;
   padding-top: 20px;
   text-align: center;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.91);
   font-size: x-large;
 }
 #teamname {

@@ -16,7 +16,7 @@ export default {
 </script>
 <style>
 body {
-  background: url("https://img2.baidu.com/it/u=2320728351,716210689&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500");
+
   background-size: 100% 100%;
   min-width: 100vw;
   min-height: 100vh;
@@ -24,6 +24,7 @@ body {
 }
 nav {
   padding: 30px;
+  box-shadow: 1px 2px 18px 1px #42b983;
 }
 
 nav a {
@@ -33,5 +34,6 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+  border-bottom: 4px solid #42b983;
 }
 </style>
