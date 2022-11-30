@@ -10,7 +10,7 @@
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="player-list" v-for="player in teaminfo">
           <div class="col player_hover">
-            <div class="card border border-4  rounded-pill  bg-secondary mb-3 text-white">
+            <div class="card border border-4  bg-secondary mb-3 text-white">
               <img :src="player.photo"
                    class="card-img-top player_photo" alt="...">
               <div class="card-body card-title player_name">
@@ -86,8 +86,8 @@ export default {
   background: #333333;
 }
 .player_hover:hover {
-  transform: scale(1.05);
-  transition: all 0.2s;
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 .navbar-brand {
   font-size: 1.2rem;
@@ -108,16 +108,20 @@ export default {
     background-size: 100% 100%;
 } */
 .player_photo {
-  width: 10rem;
   margin: 0 auto;
+  border-radius: 10%;
+}
+.border-4{
   border-radius: 10%;
 }
 .context_area {
   background-color: #ffffff00;
-  width: 65%;
+  width: 55%;
   margin: 0 auto;
   border-color: #ffffff00;
+  border-radius: 10%;
 }
+
 .player_name {
   margin: 0 auto;
   text-align: center;
