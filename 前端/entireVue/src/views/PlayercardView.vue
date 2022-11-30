@@ -377,10 +377,11 @@ import { labeledStatement } from '@babel/types';
   <style scoped>
 
   #content {
-    background: url("https://img2.baidu.com/it/u=2320728351,716210689&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500");
+    /* background: url("https://img2.baidu.com/it/u=2320728351,716210689&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500"); */
+    background:url('../assets/bg2.jpeg') ;
     background-size: 100% 100%;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     /* content分区测试 */
     display: grid;
     grid-template-columns: 2fr 1.52fr; 
@@ -388,7 +389,7 @@ import { labeledStatement } from '@babel/types';
  .container{
     padding-left: 8%;
     padding-right:0% ;
-    padding-top: 3%;
+    padding-top: 5%;
     grid-column-start: 1;
     grid-column-end: 2;
  }
@@ -490,7 +491,7 @@ import { labeledStatement } from '@babel/types';
     border-radius: 15px;
     margin-top: 3%;
     height: 420px;
-    background-color:white;    
+    background-color:rgba(255, 255, 255, 0.73);    
 }
 
 #p_chart{
@@ -571,7 +572,7 @@ import { labeledStatement } from '@babel/types';
 /* 设计其它样式 */
 /* 页面左侧的圆角风格 */
 .total{
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.863);
     /* 尝试给数据表添加圆角 */
     border-bottom-left-radius: 15px;
 }
@@ -587,6 +588,7 @@ import { labeledStatement } from '@babel/types';
     width: 20%;
     height: 100%;
 }
+/*  */
 .具体数据{
     width: 100%;
     height: 350px;
