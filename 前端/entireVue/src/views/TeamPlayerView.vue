@@ -2,10 +2,13 @@
   <div id="nativebg">
   <div id="content">
     <div id="team_name">
-
       <span id="teamname" class="border border-3 rounded-pill">{{this.$route.query.clubName}}</span>
     </div>
+    
     <div class="card context_area">
+
+      <div id="notice" v-if="notice(teaminfo)">暂无数据，敬请期待</div>
+
       <div class="card-body">
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="player-list" v-for="player in teaminfo">
@@ -14,28 +17,17 @@
               <img :src="player.photo"
                    class="card-img-top player_photo" alt="...">
               <div class="card-body card-title player_name">
-                <RouterLink :to="{ name: 'PlayercardView' ,query:{name: player.name}}" class="navbar-brand">{{player.name}}
+                <RouterLink :to="{ name: 'PlayercardView' ,query:{name: player.name}}" class="navbar-brand">{{nameFix(player.name)}}
                 </RouterLink>
               </div>
             </div>
           </div>
           </div>
-
-
-
         </div>
       </div>
     </div>
   </div>
   </div>
-
-  <!-- <div class="card" style="width: 10rem; border: 0;">
-      <img src="https://gdc.hupucdn.com/gdc/nba/players/uploads/gamespace/players/844029fa1e83104a699ad14748a795bc.png"
-          class="card-img-top player_photo" alt="...">
-      <div class="card-body">
-          <p class="card-text player_name">保罗乔治</p>
-      </div>
-  </div> -->
 </template>
 
 <script>
@@ -49,7 +41,29 @@ export default {
   name: "TeamView",
   components: {
   },
-
+  methods:{
+    notice(teaminfo){
+      let show = false;      
+      if(teaminfo.length==0){
+        show = true;
+      }
+      return show;
+    },
+    nameFix(name){
+      let test = name;
+      let len = name.length - 5; //获得存姓名的长度
+      // console.log(name+' length is '+len);
+      if(len>5){
+        let fin = name.slice(-5,-1);
+        let n_dilever = name.split('');
+        // console.log(n_dilever);
+        test = n_dilever[0]+n_dilever[1]+n_dilever[2]+'...'+fin;
+        // console.log(test);
+        name = test;
+      }
+      return name;
+    }
+  },
   setup () {
     const route = useRoute();
     let teaminfo = ref([
@@ -82,8 +96,18 @@ export default {
 </script>
 
 <style scoped>
+#notice{
+  font-size: 90px;
+  color:white;
+  line-height: 300px;
+  text-align: center;
+  height: 600px;
+}
+
 #nativebg{
-  background: #333333;
+  /* background: #333333; */
+  background-image: url('../assets/bg2.jpeg');
+  background-attachment: fixed;
 }
 .player_hover:hover {
   transform: scale(1.1);
@@ -103,10 +127,7 @@ export default {
 #teamname {
   padding: 10px;
 }
-/* #content {
-    background: url("https://img2.baidu.com/it/u=2320728351,716210689&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500");
-    background-size: 100% 100%;
-} */
+
 .player_photo {
   margin: 0 auto;
   border-radius: 10%;
