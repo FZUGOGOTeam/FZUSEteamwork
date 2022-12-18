@@ -214,8 +214,8 @@ import { labeledStatement } from '@babel/types';
         let pEcharts = echarts.init(this.$refs.pChart);
         // 2.设置数据
         let xData=['近期S1','S2','S3','未来S1','S2','S3','S4'];
-        let yData_t=[31,24,35,'-','-','-','-','-'];
-        let yData_f=['-','-',35,41,52,60,72];
+        let yData_t=['-','-','-','-','-','-','-','-'];
+        let yData_f=['-','-','-','-','-','-','-','-'];
         // 3.配置项
         let option ={
             xAxis:{
@@ -273,6 +273,56 @@ import { labeledStatement } from '@babel/types';
         }
         // 4.设置配置项
         pEcharts.setOption(option);
+        // 0.数据请求，在数据请求成功后再于回调函数中绘制表格（尝试通过回调函数对表格内容赋值）
+        const route = useRoute();   
+        let x = route.query.name;        
+        $.ajax({
+            url: 'http://8.130.33.130:8080/gogo/selectDomesticByName?name='+x,
+            type: "get",
+            data: {
+                /* "id":xx */
+             },
+            dataType: "json",
+            success(resp) {
+                console.log(resp.pastScore1);
+                //以下插入echart表格的设置
+                pEcharts.setOption({
+                    series:[
+                        {
+                            name:'实际',
+                            data:[resp.pastScore3,resp.pastScore2,resp.pastScore1,'-','-','-','-'],
+                            type:'line', //折线图
+                            label:{
+                                show:true,
+                                position:'top'
+                            },
+                            lineStyle:{
+                                normal:{
+                                    color:'red',
+                                }
+                            }
+                        },
+                        {
+                            name:'预测',
+                            data:['-','-',resp.pastScore1,resp.futureScore1,resp.futureScore2,resp.futureScore3,resp.futureScore4],
+                            type:'line', //折线图
+                            label:{
+                                show:true,
+                                position:'top'
+                            },
+                            lineStyle:{
+                                normal:{
+                                    color:'red',
+                                    type:'dashed'
+                                }
+                            }
+                        }                
+                    ]
+                });
+                //插入echart表格的设置完毕
+            }
+        })
+        console.log('yData_t = '+yData_t)
     },
     methods:{
         // 利用球员比赛信息返回首发率
