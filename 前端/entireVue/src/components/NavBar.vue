@@ -10,7 +10,7 @@
 
 
           <RouterLink :to="{name: 'AbroadView'}" class="navbar-brand ">留洋球员</RouterLink>
-            <a class="navbar-brand">排行榜</a>
+          <RouterLink :to="{name: 'RankTable'}" class="navbar-brand ">排行榜</RouterLink>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="输入球员姓名搜索" aria-label="Search">
                 <button class="btn btn-primary" style="width: 100px" type="submit">搜索</button>
