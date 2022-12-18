@@ -73,9 +73,8 @@
       </div>
   </div>
 <!-- 国内/留洋分隔线 -->
-
     <!-- 留洋球员分区 -->
-    <div id="rank_block1" class="ranking-page">
+    <div id="rank_block1" class="ranking-page" style="display:none;">
     <div class="rank1">
     <h2 class="titles">潜力值排行榜（留洋）</h2>
   <table class="ranking-page-table">
@@ -279,7 +278,7 @@ li{
 }
 /* 大致定位 */
 #rank_block{
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -288,7 +287,7 @@ li{
   background-attachment: fixed;
 }
 #rank_block1{
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr;
