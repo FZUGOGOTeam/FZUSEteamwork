@@ -6,6 +6,7 @@ import NativeView from '../views/NativeView'
 import ProvinceView from "@/views/ProvinceView";
 import TeamPlayerView from '../views/TeamPlayerView.vue';
 import AbroadView from "@/views/AbroadView";
+import RankTable from "../views/RankTable.vue"
 const routes = [
   {
     path: '/',
@@ -43,7 +44,11 @@ const routes = [
     name: 'TeamView',
     component: TeamView,
   },
-
+  {
+    path: '/RankTable',
+    name: 'RankTable',
+    component: RankTable,
+  },
   {
     path: '/about',
     name: 'about',
